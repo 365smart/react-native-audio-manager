@@ -63,6 +63,9 @@ var AudioPlayer = require('react-native-audio-manager');
 //play sound
 AudioPlayer.play('hello');
 
+//play sound with volume (0 - 1.0)
+AudioPlayer.play('hello', 0.7);
+
 //play sound with loop
 AudioPlayer.playWithLoop('hello');
 
