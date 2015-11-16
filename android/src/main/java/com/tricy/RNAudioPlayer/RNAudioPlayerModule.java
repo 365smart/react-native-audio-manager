@@ -63,6 +63,12 @@ public class RNAudioPlayerModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
+  public void playWithVolume(String audio, float volume) {
+    soundVolumes.put(audio, volume);
+    this.handlePlay(audio, false);
+  }
+
+  @ReactMethod
   public void playWithLoop(String audio) {
     this.handlePlay(audio, true);
   }
@@ -75,6 +81,10 @@ public class RNAudioPlayerModule extends ReactContextBaseJavaModule {
       try {
         mp = sounds.get(audio);
         mp.setLooping(loop);
+        Float soundVolume = soundVolumes.get(audio);
+        if (soundVolume != null) {
+          mp.setVolume(soundVolume, soundVolume);
+        }
         mp.start();
         if (!loop) {
           mp.setOnCompletionListener(new OnCompletionListener() {
@@ -85,7 +95,7 @@ public class RNAudioPlayerModule extends ReactContextBaseJavaModule {
           });
         }
       } catch (Exception e) {
-
+        
       }
     }
   }

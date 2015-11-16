@@ -15,6 +15,7 @@
     "react-native",
     "android",
     "audioplayer",
+    "audiomanager",
     "audio",
     "player",
     "manager"
