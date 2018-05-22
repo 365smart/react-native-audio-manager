@@ -13,7 +13,8 @@ import com.facebook.react.bridge.JavaScriptModule;
 
 public class RNAudioPlayer implements ReactPackage {
 
-  @Override public List<NativeModule> createNativeModules (ReactApplicationContext reactContext) {
+  @Override
+  public List<NativeModule> createNativeModules (ReactApplicationContext reactContext) {
     List<NativeModule> modules = new ArrayList<>();
     modules.add(new RNAudioPlayerModule(reactContext));
     return modules;

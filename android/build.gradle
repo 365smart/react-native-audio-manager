@@ -1,3 +1,17 @@
+buildscript {
+  repositories {
+    jcenter()
+    google()
+    maven {
+      url 'https://maven.google.com'
+    }
+  }
+
+  dependencies {
+    classpath 'com.android.tools.build:gradle:3.0.0'
+  }
+}
+
 apply plugin: 'com.android.library'
 
 android {
@@ -11,6 +25,18 @@ android {
     ndk {
       abiFilters "armeabi-v7a", "x86"
     }
+  }
+}
+
+repositories {
+  mavenCentral()
+  maven {
+    url 'https://maven.google.com'
+  }
+  maven { url "https://jitpack.io" }
+  maven {
+    // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+    url "$rootDir/../node_modules/react-native/android"
   }
 }
 
